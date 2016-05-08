@@ -4,11 +4,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>修改新闻</title>
-<style>
-form{
-padding:0px;
-margin:0px;
-}
+<style type="text/css">
+	.btn02 { background:#fff;
+	 height:24px; width:55px; color:#297405; border:2px solid #90be4a;
+	  font-size:12px; font-weight:bold; line-height:180%; cursor:pointer;}
+	.text2 { border:2px solid #90be4a; width:200px; height:24px; font-size:16px;
+	  font-weight:bold; line-height:1.6;}
+	.form { padding:0px; margin:0px;} 
+	.area { border:2px solid #90be4a;  overflow:auto; 
+	  width:550px; height:169px;}
 </style>
 </head>
 <body>

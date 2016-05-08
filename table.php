@@ -9,6 +9,17 @@
 ?>
 <title><?php echo "$table";?>表</title>
 </head>
+<style type="text/css">
+	.btn02 { background:#fff;
+	 height:24px; width:70px; color:#297405; border:2px solid #90be4a;
+	  font-size:12px; font-weight:bold; line-height:180%; cursor:pointer;}
+	.text2 { border:2px solid #90be4a; width:550px; height:24px; font-size:16px;
+	  font-weight:bold; line-height:1.6; overflow:auto; }
+	.form { padding:0px; margin:0px;} 
+	.area { border:2px solid #90be4a;  overflow:auto; 
+	  width:550px; height:169px; font-size:16px;}
+</style>
+
 <body>
 <table border="0" align="center" cellpadding="0" cellspacing="0">
 <tr>
@@ -27,11 +38,14 @@
 	$title=$dbrow['title']; 
 	$add_time=$dbrow['add_time'];
 	$content=$dbrow['content'];
-	echo "<tr><td align='left'>";
-	echo "id:$id 标题:$title 添加时间:$add_time";
+	echo "<tr><td align='center'><font size='20px'>";
+	echo "id:$id 标题:$title";
+	echo "</font></td></tr>";
+	echo "<tr><td align='center'>";
+	echo "添加时间:$add_time";
 	echo "</td></tr>";//显示id，标题，时间
 	echo "<tr><td align='center'>评论:</td></tr>";
-	echo "<tr><td align='center'><textarea>";
+	echo "<tr><td align='center'><textarea class='area'>";
 	echo "$content";
 	echo "</textarea></td></tr>";//显示评论
 	echo "<tr><td align='center'>"; 
