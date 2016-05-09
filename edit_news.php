@@ -6,10 +6,10 @@
 <title>修改新闻</title>
 <style type="text/css">
 	.btn02 { background:#fff;
-	 height:24px; width:55px; color:#297405; border:2px solid #90be4a;
+	 height:24px; width:70px; color:#297405; border:2px solid #90be4a;
 	  font-size:12px; font-weight:bold; line-height:180%; cursor:pointer;}
-	.text2 { border:2px solid #90be4a; width:200px; height:24px; font-size:16px;
-	  font-weight:bold; line-height:1.6;}
+	.text2 { border:2px solid #90be4a; width:550px; height:24px; font-size:16px;
+	  font-weight:bold; line-height:1.6; overflow:auto;}
 	.form { padding:0px; margin:0px;} 
 	.area { border:2px solid #90be4a;  overflow:auto; 
 	  width:550px; height:169px;}
@@ -37,13 +37,13 @@ $add_time=$dbrow['add_time'];
 </table>
 <form action="save_edit_news.php" method="post"> <!---把内容传到save_edit_news.php 保存-->
 <table width="70%" border="0" align="center" cellpadding="0" cellspacing="0">
-<tr>
-<td width="30%" align="right">新闻标题</td>
-<td width="70%" align="left"><input type="text" name="title" size="30" value='<?php echo $title;?>'/></td>
+<tr align="center">
+<td width="150px" align="center">新闻标题</td>
+<td align="left"><input type="text" name="title" size="30" class="text2" value='<?php echo $title;?>'/></td>
 </tr>
 <tr>
-<td align="right">新闻内容</td>
-<td align="left"><textarea name="content" cols="30" rows="5"><?php echo $content; ?></textarea></td>
+<td align="center">新闻内容</td>
+<td align="left"><textarea name="content" class="area"><?php echo $content; ?></textarea></td>
 </tr>
 </table>
 <table width="70%" height="30" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -51,7 +51,7 @@ $add_time=$dbrow['add_time'];
 <td align="center"> <input type="hidden" name="id" value='<?php echo $id; ?>' /> 
 <input type="hidden" name="table" value='<?php echo $table;?>' />
 <!----这里很重要,以隐藏方式把ID值也传到save_edit_news.php文,以确定更新的具体是哪条新闻--->
-<input type="submit" name="submit1" value="确定修改"/></td>
+<input type="submit" name="submit1" class="btn02" value="确定修改"/></td>
 </tr>
 </table>
 </form>
