@@ -20,9 +20,19 @@ if($row){
 				$dbrow=mysql_fetch_array($res);
 				$table = $dbrow['Tables_in_test'];
 				echo "<tr><td align='center'>";
-				echo "<a href='table.php?table=$table'><font color='red'>";
-				echo $table;
-				echo "</font></a></td></tr>";
+				if($table == 'news'){
+					echo "<a href='table.php?table=$table'><font color='red'>";
+					echo $table;
+					echo "</font></a></td></tr>";
+				}else if($table == 'emp'){
+					echo "<a href='show_emp.php?table=$table'><font color='red'>";
+					echo $table;
+					echo "</font></a></td></tr>";
+				}else if($table == 'dept'){
+					echo "<a href='show_dept.php?table=$table'><font color='red'>";
+					echo $table;
+					echo "</font></a></td></tr>";
+				}
 			}
 	}
 ?>

@@ -19,11 +19,24 @@
 	.area { border:2px solid #90be4a;  overflow:auto; 
 	  width:550px; height:169px; font-size:16px;}
 </style>
-
 <body>
-<table border="1" align="center" cellpadding="0" cellspacing="0">
+<table border="0" align="center">
 <tr>
-<td align="center"><?php echo "$table";?>表：</td>
+<td><?php echo "$table";?>表</td>
+</tr>
+</table>
+<table border="1" align="center" cellpadding="0" cellspacing="0">
+
+<tr>
+<td width='100px'>EMPNO </td>
+<td width='100px'>ENAME </td>
+<td width='100px'>JOB </td>
+<td width='100px'>MGR </td>
+<td width='100px'>HIREDATE </td>
+<td width='100px'>SAL </td>
+<td width='100px'>COMM </td>
+<td width='100px'>DEPTNO </td>
+<td width='100px'>操作 </td>
 </tr>
 <?php
 	$query = "select * from $table";
@@ -34,36 +47,48 @@
 	while($row--) //这里用一个FOR 语句查询显示多条结果
 	{ 
 	$dbrow=mysql_fetch_array($res);
-	$id=$dbrow['id']; 
-	$title=$dbrow['title']; 
-	$add_time=$dbrow['add_time'];
-	$content=$dbrow['content'];
-	echo "<tr><td align='center'><font size='20px'>";
-	echo "id:$id 标题:$title";
-	echo "</font></td></tr>";
-	echo "<tr><td align='center'>";
-	echo "添加时间:$add_time";
-	echo "</td></tr>";//显示id，标题，时间
-	echo "<tr><td align='center'>评论:</td></tr>";
-	echo "<tr><td align='center'><textarea class='area'>";
-	echo "$content";
-	echo "</textarea></td></tr>";//显示评论
-	echo "<tr><td align='center'>"; 
-	echo "<a href='del_news.php?id=$id&table=$table'><font color='red'>删除</font></a>";
+	$empno=$dbrow['EMPNO']; 
+	$ename=$dbrow['ENAME']; 
+	$job=$dbrow['JOB'];
+	$mgr=$dbrow['MGR'];
+	$hiredate=$dbrow['HIREDATE'];
+	$sal=$dbrow['SAL'];
+	$comm=$dbrow['COMM'];
+	$deptno=$dbrow['DEPTNO'];
+	echo "<tr><td>$empno</td>";
+	echo "<td>$ename</td>";
+	echo "<td>$job</td>";
+	echo "<td>$mgr</td>";//显示id，标题，时间
+	echo "<td>$hiredate</td>";
+	echo "<td>$sal</td>";
+	echo "<td>$comm</td>";
+	echo "<td>$deptno</td>";
+	echo "<td align='center'>"; 
+	echo "<a href='del_table.php?id=$empno&table=$table'><font color='red'>删除</font></a>";
 	echo " ";
-	echo "<a href='edit_news.php?id=$id&table=$table'><font color='red'>修改</font></a>";
+	echo "<a href='edit_table.php?id=$empno&table=$table'><font color='red'>修改</font></a>";
 	echo "</td></tr>";//显示删除及修改
 	}
+	echo "</table>";
+	echo "<table border='0' align='center'>";
 	echo "<tr><td align='center'>";
-	echo "<a href='add_news.php?id=$id&table=$table'><font color='red'>添加</font></a>";
+	echo "<a href='add_table.php?table=$table'><font color='red'>添加</font></a>";
 	echo "</td></tr>";//显示添加
 	echo "<tr><td align='center'>";
 	echo "<a href='index.php'><font color='red'>返回首页</font></a>";
 	echo "</td></tr>";//显示返回
+	echo "</table>";
 	}
 else
 {
-echo "无相关数据";
+?>
+<table border="0" align="center">
+<tr>
+<td><a href='add_table.php?table=<?php echo $table;?>'><font color='red'>添加</font></a></td>
+<td><a href='index.php'><font color='red'>返回首页</font></a></td>
+</tr>
+</table>
+<?php
 }
 ?>
 </body>

@@ -21,7 +21,7 @@ include ("conn.php");
 $id=$_GET[id]; //先接收从news.php传过来的ID值以确定要修改的新闻
 $table=$_GET[table];
 //接着查出该新闻有关数据.
-$query = "select * from news where id=$id"; 
+$query = "select * from $table where id=$id"; 
 $res = mysql_query($query, $conn) or die(mysql_error());
 $row = mysql_num_rows($res); //如果查询成功这里返回真否则为假
 $dbrow=mysql_fetch_array($res);
